@@ -14,7 +14,7 @@ async function loadGoogleFont(font: string, text: string) {
 }
 
 export async function generateOgImage(title: string, subtitle: string) {
-    const textToLoad = title + subtitle + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const textToLoad = title + subtitle + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .-,:;/&()|";
     const fontDataRegular = await loadGoogleFont("Inter", textToLoad);
     const fontDataBold = await loadGoogleFont("Inter:wght@700", textToLoad);
 

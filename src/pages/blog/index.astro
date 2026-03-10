@@ -175,11 +175,7 @@ const posts = (await getCollection('blog')).sort(
                             </div>
 
                             <a href={url(`/blog/${post.id}/`)} class="blog-thumb">
-                                {post.data.heroImage ? (
-                                    <Image width={560} height={315} src={post.data.heroImage} alt="" />
-                                ) : (
-                                    <img src="https://placehold.co/560x315/f3f4f6/1f2937?text=Article" alt="No image" />
-                                )}
+                                <img src={url(`/blog/${post.id}.png`)} alt={post.data.title} />
                             </a>
                         </article>
                     ))
