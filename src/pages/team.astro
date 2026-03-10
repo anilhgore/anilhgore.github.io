@@ -1,0 +1,65 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import authorsData from '../data/authors.json';
+
+const currentMembers = authorsData
+	.filter(m => !m.alumni)
+	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+
+const alumni = authorsData
+	.filter(m => m.alumni)
+	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Team | ${SITE_TITLE}`} description="Research Team" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Research Team</h1>
+			
+			<h2>Current Members</h2>
+			<div class="grid-3">
+				{currentMembers.length > 0 ? currentMembers.map((member) => (
+					<div class="team-card interactive-card author-modal-trigger" data-member={JSON.stringify(member)}>
+						{member.avatar ? (
+							<img 
+								src={member.avatar} 
+								alt={member.name} 
+								class="team-avatar"
+							/>
+						) : (
+							<img src="https://placehold.co/150" alt="Placeholder" class="team-avatar" />
+						)}
+						<span class="team-name">{member.name}</span>
+						<span class="team-role">{member.title}</span>
+						<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{member.role}</span>
+					</div>
+				)) : <p>No current members found.</p>}
+			</div>
+
+			{alumni.length > 0 && (
+				<>
+					<h2>Alumni</h2>
+					<div class="grid-3">
+						{alumni.map((member) => (
+							<div class="team-card interactive-card author-modal-trigger" data-member={JSON.stringify(member)}>
+								<span class="team-name">{member.name}</span>
+								<span class="team-role">{member.title}</span>
+								<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{member.role}</span>
+							</div>
+						))}
+					</div>
+				</>
+			)}
+		</main>
+
+		<Footer />
+	</body>
+</html>
