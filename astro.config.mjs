@@ -6,7 +6,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://shravangoswami.com',
-	base: '/Academic-Portfolio',
+	site: 'https://anilhgore.github.io',
 	integrations: [mdx(), sitemap()],
 });

@@ -5,10 +5,11 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import bibFileRaw from '../data/publications.bib?raw';
+import { url } from '../utils/paths';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-).slice(0, 3);
+).slice(0, 4);
 
 interface Author {
 	first: string;
@@ -65,11 +66,46 @@ function parseBibTeX(input: string): BibEntry[] {
 
 const publications = parseBibTeX(bibFileRaw).sort((a, b) => {
     return (parseInt(b.fields.year) || 0) - (parseInt(a.fields.year) || 0);
-}).slice(0, 3);
+}).slice(0, 4);
 
 const formatAuthor = (auth: Author) => {
     return auth.first ? `${auth.first} ${auth.last}` : auth.last;
 };
+
+const metrics = [
+    { value: '70+', label: 'Publications' },
+    { value: '2660+', label: 'Citations' },
+    { value: '28', label: 'h-index' },
+    { value: '4', label: 'Patents' },
+];
+
+const researchAreas = [
+    'Micro/Nanoplastics Analysis & Remediation',
+    'Sustainable Nanotechnology & Biomass Valorization',
+    'LC-MS/MS & GC-MS Method Development',
+    'Eco-Hydrogels for Environmental Remediation',
+    'Carbon Dots & Quantum Dot Nanosensors',
+    'UV Protective Biopolymer Nanocomposites',
+];
+
+const careerTimeline = [
+	{ period: '2024 – Present', role: 'Associate Professor', institution: 'UKA Tarsadia University, Bardoli, Surat' },
+	{ period: '2019 – 2024', role: 'Assistant Professor', institution: 'UKA Tarsadia University, Bardoli, Surat' },
+	{ period: '2016 – 2019', role: 'DST-SERB Young Scientist Fellow', institution: 'R.C. Shahu College, Kolhapur' },
+	{ period: '2015 – 2016', role: 'Postdoctoral Fellow', institution: 'Korea University, Seoul, South Korea' },
+];
+
+const educationTimeline = [
+	{ period: '2010 – 2013', role: 'Ph.D. in Chemistry', institution: 'Shivaji University, Kolhapur' },
+	{ period: '2005 – 2007', role: 'M.Sc. in Analytical Chemistry', institution: 'Shivaji University, Kolhapur' },
+];
+
+const awards = [
+	{ year: '2023', title: 'Expert Panelist, AOAC Southeast Asia, Singapore' },
+	{ year: '2021', title: 'Outstanding Scientist Award, VDGOOD Professional Association' },
+	{ year: '2016', title: 'Young Scientist Award, DST-SERB, New Delhi (Rs. 32.67L)' },
+	{ year: '2015', title: 'Post-Doctoral Fellowship, Korea University, South Korea' },
+];
 ---
 
 <!doctype html>
@@ -77,118 +113,536 @@ const formatAuthor = (auth: Author) => {
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			/* --- Global refinements for index --- */
+			:root {
+				--section-gap: 5rem;
+				--card-radius: 16px;
+				--transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+			}
+
+			.glass-card {
+				background: var(--color-bg-offset);
+				border: 1px solid var(--color-border);
+				border-radius: var(--card-radius);
+				padding: 2.5rem;
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+				transition: var(--transition-smooth);
+			}
+			.glass-card:hover {
+				box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+				border-color: var(--color-accent);
+			}
+
+			/* --- Hero --- */
 			.hero {
 				display: flex;
 				align-items: center;
+				justify-content: space-between;
 				gap: 4rem;
-				padding: 4rem 0;
+				margin-top: 4rem;
+				margin-bottom: var(--section-gap);
+			}
+			.hero-text {
+				flex: 1.2;
+				animation: fadeUp 0.8s ease-out;
+			}
+			.hero-greet {
+				font-size: 1rem;
+				font-weight: 600;
+				color: var(--color-accent);
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				margin-bottom: 0.5rem;
+				display: block;
+			}
+			.hero-name {
+				font-size: 3.5rem;
+				font-weight: 800;
+				line-height: 1.1;
+				margin: 0 0 1rem 0;
+				letter-spacing: -0.03em;
+				color: var(--color-text-main);
+				font-family: var(--font-serif);
+			}
+			.hero-title {
+				font-size: 1.1rem;
+				color: var(--color-text-muted);
+				margin-bottom: 1.5rem;
+				line-height: 1.6;
+				border-left: 3px solid var(--color-accent);
+				padding-left: 1rem;
+			}
+			.hero-bio {
+				font-size: 1.15rem;
+				line-height: 1.7;
+				color: var(--color-text-main);
+				opacity: 0.9;
+				margin-bottom: 2rem;
+				max-width: 90%;
+			}
+			.hero-actions {
+				display: flex;
+				gap: 1.5rem;
+				align-items: center;
+			}
+			.btn-primary {
+				background: var(--color-accent);
+				color: #fff;
+				padding: 0.75rem 1.75rem;
+				border-radius: 999px;
+				font-weight: 600;
+				text-decoration: none;
+				transition: var(--transition-smooth);
+				box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+			}
+			[data-theme="dark"] .btn-primary {
+				color: var(--color-bg);
+			}
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+				filter: brightness(1.1);
+			}
+			.btn-secondary {
+				color: var(--color-text-main);
+				font-weight: 600;
+				text-decoration: none;
+				padding: 0.75rem 1.75rem;
+				border-radius: 999px;
+				border: 1px solid var(--color-border);
+				transition: var(--transition-smooth);
+			}
+			.btn-secondary:hover {
+				border-color: var(--color-text-main);
+				background: var(--color-bg-offset);
+			}
+			
+			.hero-photo-container {
+				flex: 0.8;
+				display: flex;
+				justify-content: center;
+				animation: fadeIn 1s ease-out;
+			}
+			.hero-photo {
+				width: 320px;
+				height: 320px;
+				object-fit: cover;
+				border-radius: 2rem;
+				box-shadow: 20px 20px 0 0 var(--color-bg-offset), 0 20px 40px -10px rgba(0,0,0,0.2);
+				border: 1px solid var(--color-border);
+				transition: var(--transition-smooth);
+			}
+			.hero-photo:hover {
+				transform: scale(1.02) rotate(-1deg);
+				box-shadow: 15px 15px 0 0 var(--color-accent), 0 25px 50px -12px rgba(0,0,0,0.25);
+			}
+
+			/* --- Metrics Grid --- */
+			.metrics-container {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1.5rem;
+				margin-bottom: var(--section-gap);
+			}
+			.metric-card {
+				background: var(--color-bg-offset);
+				border: 1px solid var(--color-border);
+				border-radius: var(--card-radius);
+				padding: 2rem 1.5rem;
+				text-align: center;
+				transition: var(--transition-smooth);
+			}
+			.metric-card:hover {
+				transform: translateY(-5px);
+				border-color: var(--color-accent);
+				background: linear-gradient(145deg, var(--color-bg-offset), var(--color-bg));
+			}
+			.metric-value {
+				font-size: 2.75rem;
+				font-weight: 800;
+				color: var(--color-text-main);
+				margin-bottom: 0.25rem;
+				font-family: var(--font-sans);
+				letter-spacing: -0.02em;
+			}
+			.metric-label {
+				font-size: 0.9rem;
+				font-weight: 600;
+				color: var(--color-accent);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			/* --- Research Chips --- */
+			.section-wrapper {
+				margin-bottom: var(--section-gap);
+			}
+			.section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-end;
+				margin-bottom: 2.5rem;
+			}
+			.section-title {
+				font-size: 2rem;
+				font-family: var(--font-serif);
+				font-weight: 700;
+				margin: 0;
+				color: var(--color-text-main);
+			}
+			.view-all {
+				color: var(--color-accent);
+				font-weight: 600;
+				text-decoration: none;
+				font-size: 0.95rem;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				transition: gap 0.2s;
+			}
+			.view-all:hover {
+				gap: 0.75rem;
+				text-decoration: underline;
+			}
+
+			.chips-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem;
+			}
+			.chip {
+				padding: 0.75rem 1.5rem;
+				background: var(--color-bg-offset);
+				border: 1px solid var(--color-border);
+				border-radius: 999px;
+				font-size: 0.95rem;
+				font-weight: 500;
+				color: var(--color-text-main);
+				transition: var(--transition-smooth);
+				box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+			}
+			.chip:hover {
+				background: var(--color-accent);
+				color: #fff;
+				border-color: var(--color-accent);
+				transform: translateY(-2px);
+			}
+			[data-theme="dark"] .chip:hover {
+				color: var(--color-bg);
+			}
+
+			/* --- Two Column Layout --- */
+			.dual-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				margin-bottom: var(--section-gap);
+			}
+
+			/* --- Timeline --- */
+			.timeline {
+				position: relative;
+				padding-left: 2rem;
+				margin-top: 1rem;
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 6px;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background: var(--color-border);
+				border-radius: 2px;
+			}
+			.tl-item {
+				position: relative;
 				margin-bottom: 2rem;
 			}
-			.hero-content { flex: 3; }
-			.hero-image { 
-				flex: 2; 
-				text-align: center;
-                position: relative;
+			.tl-item:last-child {
+				margin-bottom: 0;
 			}
-			.hero-image img {
-				width: 280px;
-				height: 280px;
-				object-fit: cover;
+			.tl-dot {
+				position: absolute;
+				left: -2rem;
+				top: 0.35rem;
+				width: 14px;
+				height: 14px;
 				border-radius: 50%;
-				border: 6px solid var(--color-bg);
-				box-shadow: 0 0 0 1px var(--color-border), var(--shadow-lg);
+				background: var(--color-bg);
+				border: 3px solid var(--color-accent);
+				box-shadow: 0 0 0 4px var(--color-bg);
+				transition: transform 0.3s;
 			}
-            
-            .pub-mini-item {
-                margin-bottom: 1.5rem;
-                padding-bottom: 1.5rem;
-                border-bottom: 1px solid var(--color-border);
-            }
-            .pub-mini-item:last-child { border-bottom: none; margin-bottom: 0; }
-            .pub-title { font-weight: 700; color: var(--color-text-main); display: block; margin-bottom: 0.25rem; font-family: var(--font-serif); font-size: 1.1rem; }
-            .pub-meta { font-size: 0.9rem; color: var(--color-text-muted); }
+			.tl-item:hover .tl-dot {
+				transform: scale(1.2);
+				background: var(--color-accent);
+			}
+			.tl-period {
+				display: inline-block;
+				font-size: 0.8rem;
+				font-weight: 700;
+				color: var(--color-text-muted);
+				background: var(--color-bg-offset);
+				padding: 0.25rem 0.75rem;
+				border-radius: 999px;
+				border: 1px solid var(--color-border);
+				margin-bottom: 0.5rem;
+			}
+			.tl-role {
+				font-size: 1.1rem;
+				font-weight: 700;
+				color: var(--color-text-main);
+				margin-bottom: 0.25rem;
+			}
+			.tl-inst {
+				font-size: 0.95rem;
+				color: var(--color-text-muted);
+			}
 
-			.hero-buttons {
+			/* --- Lists (Pubs/News/Awards) --- */
+			.feature-list {
 				display: flex;
-				gap: 1rem;
-				flex-wrap: wrap;
+				flex-direction: column;
+				gap: 1.5rem;
 			}
-			@media (max-width: 768px) {
-				.hero { flex-direction: column-reverse; text-align: center; padding: 2rem 0; gap: 2rem; }
-                .hero-image img { width: 200px; height: 200px; }
-                .hero-buttons { justify-content: center; }
+			.feature-item {
+				border-bottom: 1px dashed var(--color-border);
+				padding-bottom: 1.5rem;
+				transition: opacity 0.2s;
+			}
+			.feature-item:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+			.feature-item:hover {
+				opacity: 0.8;
+			}
+			
+			.pub-title {
+				font-size: 1.05rem;
+				font-weight: 600;
+				color: var(--color-text-main);
+				line-height: 1.4;
+				margin-bottom: 0.4rem;
+				display: block;
+			}
+			.pub-meta {
+				font-size: 0.85rem;
+				color: var(--color-text-muted);
+				line-height: 1.5;
+			}
+			.pub-venue {
+				color: var(--color-accent);
+				font-weight: 500;
+			}
+
+			.news-date {
+				font-size: 0.8rem;
+				font-weight: 600;
+				color: var(--color-accent);
+				margin-bottom: 0.25rem;
+				display: block;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.news-title {
+				font-size: 1.1rem;
+				font-weight: 600;
+				color: var(--color-text-main);
+				text-decoration: none;
+				line-height: 1.4;
+			}
+			
+			.award-item {
+				display: flex;
+				gap: 1.5rem;
+				align-items: flex-start;
+				padding: 1.25rem 0;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.award-item:last-child {
+				border: none;
+			}
+			.award-year {
+				font-size: 1.25rem;
+				font-family: var(--font-serif);
+				font-weight: 700;
+				color: var(--color-accent);
+				line-height: 1;
+				min-width: 60px;
+			}
+			.award-title {
+				font-size: 1.1rem;
+				color: var(--color-text-main);
+				line-height: 1.4;
+				font-weight: 500;
+			}
+
+			/* --- Animations --- */
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+			@keyframes fadeUp {
+				from { opacity: 0; transform: translateY(20px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+
+			/* --- Responsive --- */
+			@media (max-width: 1024px) {
+				.hero { flex-direction: column-reverse; text-align: center; gap: 3rem; margin-top: 2rem; }
+				.hero-bio { margin-left: auto; margin-right: auto; }
+				.hero-actions { justify-content: center; }
+				.hero-title { border-left: none; padding-left: 0; }
+				.dual-grid { grid-template-columns: 1fr; gap: 4rem; }
+				.metrics-container { grid-template-columns: repeat(2, 1fr); }
+			}
+			@media (max-width: 640px) {
+				.metrics-container { grid-template-columns: 1fr; }
+				.hero-name { font-size: 2.75rem; }
+				.hero-photo { width: 240px; height: 240px; }
+				.section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
+			<!-- Hero Section -->
 			<section class="hero">
-				<div class="hero-content">
-					<h1 style="margin-bottom: 0.5rem; font-size: 3rem;">Friedrich Nietzsche</h1>
-					<h4 style="font-weight: 400; color: var(--color-text-muted); margin-bottom: 1.5rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.05em; font-size: 1rem;">
-						Professor of Philosophy<br/>
-						Institute for Advanced Study
-					</h4>
-					<p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
-						Welcome to my academic portfolio. My research focuses on <strong>Philosophy of Culture, Morality, and the Will to Power</strong>. I lead the Philosophy Group where we challenge conventional thinking and explore the transformation of human values and civilization.
+				<div class="hero-text">
+					<span class="hero-greet">Academic Portfolio</span>
+					<h1 class="hero-name">Dr. Anil H. Gore</h1>
+					<div class="hero-title">
+						<strong>Associate Professor</strong> • Tarsadia Institute of Chemical Science<br/>
+						UKA Tarsadia University, Surat, Gujarat, India
+					</div>
+					<p class="hero-bio">
+						Specializing in <strong>Analytical Chemistry & Sustainable Nanotechnology</strong>. My lab focuses on micro/nanoplastics analysis, biomass-derived nanomaterials, LC-MS/MS method development, and designing advanced materials for environmental remediation.
 					</p>
-					<div class="hero-buttons">
-						<a href={`${import.meta.env.BASE_URL}/publications`} class="btn">View Publications</a>
-						<a href={`${import.meta.env.BASE_URL}/projects`} class="btn btn-outline">Current Projects</a>
+					<div class="hero-actions">
+						<a href={url('/publications')} class="btn-primary">View Publications</a>
+						<a href={url('/cv.pdf')} target="_blank" class="btn-secondary">Download CV</a>
 					</div>
 				</div>
-				<div class="hero-image">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/500px-Nietzsche187a.jpg" alt="Professor Portrait" />
+				<div class="hero-photo-container">
+					<img src="/anil-gore.jpg" alt="Dr. Anil H. Gore" class="hero-photo" />
 				</div>
 			</section>
 
-			<hr style="margin: 3rem 0; border-top: 1px solid var(--color-border);" />
+			<!-- Metrics Grid -->
+			<section class="metrics-container">
+				{metrics.map(m => (
+					<div class="metric-card">
+						<div class="metric-value">{m.value}</div>
+						<div class="metric-label">{m.label}</div>
+					</div>
+				))}
+			</section>
 
-			<div class="grid-2" style="gap: 4rem; margin-top: 0;">
-                <section>
-                    <h2 style="margin-top: 0;">Selected Publications</h2>
-                    <div class="publication-list">
-                        {publications.length > 0 ? publications.map((pub) => (
-                            <div class="pub-mini-item">
-                                <span class="pub-title">{pub.fields.title.replace(/[{}]/g, '')}</span>
-                                <div class="pub-meta">
-                                    {pub.authors.map(a => formatAuthor(a)).join(', ')}
-                                    <br/>
-                                    <span style="font-style: italic; color: var(--color-accent);">
-                                        {(pub.fields.journal || pub.fields.booktitle || pub.fields.publisher || "Preprint").replace(/[{}]/g, '')}
-                                    </span>
-                                    {pub.fields.year && <span>, {pub.fields.year}</span>}
-                                </div>
-                            </div>
-                        )) : <p>No publications found.</p>}
-                    </div>
-                    <div style="margin-top: 1.5rem;">
-                        <a href={`${import.meta.env.BASE_URL}/publications`} style="font-weight: 600;">View Full List &rarr;</a>
-                    </div>
-                </section>
+			<!-- Experience & Education (Two Col Grid) -->
+			<section class="section-wrapper dual-grid">
+				<div class="glass-card">
+					<div class="section-header" style="margin-bottom: 1.5rem;">
+						<h2 class="section-title">Career Journey</h2>
+					</div>
+					<div class="timeline">
+						{careerTimeline.map(item => (
+							<div class="tl-item">
+								<div class="tl-dot"></div>
+								<div class="tl-period">{item.period}</div>
+								<div class="tl-role">{item.role}</div>
+								<div class="tl-inst">{item.institution}</div>
+							</div>
+						))}
+					</div>
+				</div>
 
-                <section>
-                    <h2 style="margin-top: 0;">Lab News</h2>
-                    <ul style="list-style: none; padding: 0;">
-                        {posts.map((post) => (
-                            <li style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--color-border);">
-                                <a href={`${import.meta.env.BASE_URL}/blog/${post.id}/`} style="display: block; font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--color-text-main); margin-bottom: 0.25rem;">
-                                    {post.data.title}
-                                </a>
-                                <small style="color: var(--color-text-muted); text-transform: uppercase; font-size: 0.8rem;">
-                                    {post.data.pubDate.toLocaleDateString('en-us', {
-                                        year: 'numeric',
-                                        month: 'short',
-                                        day: 'numeric',
-                                    })}
-                                </small>
-                            </li>
-                        ))}
-                    </ul>
-                    <a href={`${import.meta.env.BASE_URL}/blog`} style="font-weight: 600;">View Blog &rarr;</a>
-                </section>
-            </div>
+				<div class="glass-card">
+					<div class="section-header" style="margin-bottom: 1.5rem;">
+						<h2 class="section-title">Education</h2>
+					</div>
+					<div class="timeline">
+						{educationTimeline.map(item => (
+							<div class="tl-item">
+								<div class="tl-dot"></div>
+								<div class="tl-period">{item.period}</div>
+								<div class="tl-role">{item.role}</div>
+								<div class="tl-inst">{item.institution}</div>
+							</div>
+						))}
+					</div>
+					
+					<div style="margin-top: 3rem;">
+						<h3 class="tl-role" style="margin-bottom: 1rem;">Awards & Recognitions</h3>
+						<div class="feature-list" style="gap: 1rem;">
+							{awards.map(a => (
+								<div class="award-item" style="padding: 0.5rem 0; border: none;">
+									<span class="award-year" style="font-size: 1rem;">{a.year}</span>
+									<span class="award-title" style="font-size: 0.95rem;">{a.title}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Research Interests -->
+			<section class="section-wrapper">
+				<div class="section-header">
+					<h2 class="section-title">Research Focus</h2>
+				</div>
+				<div class="chips-container">
+					{researchAreas.map(area => (
+						<div class="chip">{area}</div>
+					))}
+				</div>
+			</section>
+
+			<!-- Publications & News (Two Col Grid) -->
+			<section class="section-wrapper dual-grid">
+				<div>
+					<div class="section-header">
+						<h2 class="section-title">Selected Works</h2>
+						<a href={url('/publications')} class="view-all">See all <span aria-hidden="true">&rarr;</span></a>
+					</div>
+					<div class="feature-list">
+						{publications.map((pub) => (
+							<div class="feature-item">
+								<span class="pub-title">{pub.fields.title.replace(/[{}]/g, '')}</span>
+								<div class="pub-meta">
+									{pub.authors.map(a => formatAuthor(a)).join(', ')}<br/>
+									<span class="pub-venue">
+										{(pub.fields.journal || pub.fields.booktitle || '').replace(/[{}]/g, '')}
+										{pub.fields.year && ` (${pub.fields.year})`}
+									</span>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<div>
+					<div class="section-header">
+						<h2 class="section-title">Lab News</h2>
+						<a href={url('/blog')} class="view-all">All updates <span aria-hidden="true">&rarr;</span></a>
+					</div>
+					<div class="feature-list">
+						{posts.map((post) => (
+							<div class="feature-item">
+								<span class="news-date">
+									{post.data.pubDate.toLocaleDateString('en-us', { month: 'short', day: 'numeric', year: 'numeric' })}
+								</span>
+								<a href={url(`/blog/${post.id}/`)} class="news-title">
+									{post.data.title}
+								</a>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
 		</main>
 		<Footer />
 	</body>

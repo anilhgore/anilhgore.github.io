@@ -166,7 +166,7 @@ const projects = projectsData.sort((a, b) => b.year - a.year);
 		<main class="projects-section">
 			<div class="projects-hero">
 				<h1>Research Projects</h1>
-				<p>Landmark philosophical investigations that have fundamentally shaped the course of Western intellectual history.</p>
+				<p>Funded and ongoing research projects in analytical chemistry, sustainable nanotechnology, and environmental remediation.</p>
 			</div>
 			
 			<div class="projects-grid">
@@ -189,7 +189,7 @@ const projects = projectsData.sort((a, b) => b.year - a.year);
 
 						<div class="project-content-wrapper">
 							<div class="project-header">
-								<span class="project-year">{project.year > 0 ? project.year : 'Classical'}</span>
+								<span class="project-year">{project.year}</span>
 								<h3>
 									{project.link ? (
 										<a href={project.link} target="_blank">{project.title}</a>
