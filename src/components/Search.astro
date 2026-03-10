@@ -29,7 +29,7 @@ import "@pagefind/default-ui/css/ui.css";
 </div>
 
 <script>
-  let searchAbort;
+  let searchAbort: AbortController | undefined;
 
   function setupSearch() {
     if (searchAbort) searchAbort.abort();
@@ -50,7 +50,7 @@ import "@pagefind/default-ui/css/ui.css";
       const needsInit = searchContainer && searchContainer.children.length === 0;
 
       if (needsInit && !import.meta.env.DEV) {
-        const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+        const onIdle = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1));
         onIdle(async () => {
           const { PagefindUI } = await import("@pagefind/default-ui");
           new PagefindUI({
@@ -60,14 +60,14 @@ import "@pagefind/default-ui/css/ui.css";
             showImages: false,
             showSubResults: true,
           });
-          const searchInput = overlay.querySelector(".pagefind-ui__search-input");
+          const searchInput = overlay.querySelector(".pagefind-ui__search-input") as HTMLInputElement | null;
           if (searchInput) {
             searchInput.focus();
           }
         });
       } else {
         requestAnimationFrame(() => {
-          const searchInput = overlay.querySelector(".pagefind-ui__search-input");
+          const searchInput = overlay.querySelector(".pagefind-ui__search-input") as HTMLInputElement | null;
           if (searchInput) {
             searchInput.focus();
           }

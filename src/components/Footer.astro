@@ -77,10 +77,10 @@ import { url } from '../utils/paths';
 </dialog>
 
 <script>
-    const modal = document.getElementById('author-modal');
+    const modal = document.getElementById('author-modal') as HTMLDialogElement | null;
     const closeBtn = document.getElementById('close-modal');
 
-    const modalAvatar = document.getElementById('modal-avatar');
+    const modalAvatar = document.getElementById('modal-avatar') as HTMLImageElement | null;
     const modalName = document.getElementById('modal-name');
     const modalTitle = document.getElementById('modal-title');
     const modalRole = document.getElementById('modal-role');
@@ -100,16 +100,18 @@ import { url } from '../utils/paths';
                 if(!dataRaw) return;
                 const member = JSON.parse(dataRaw);
                 
-                modalName.textContent = member.name;
-                modalTitle.textContent = member.title;
-                modalRole.textContent = member.role;
-                modalBio.textContent = member.bio || 'No description available.';
+                if (modalName) modalName.textContent = member.name;
+                if (modalTitle) modalTitle.textContent = member.title;
+                if (modalRole) modalRole.textContent = member.role;
+                if (modalBio) modalBio.textContent = member.bio || 'No description available.';
 
                 if(member.avatar) {
-                    modalAvatar.src = member.avatar;
-                    modalAvatar.style.display = 'block';
+                    if (modalAvatar) {
+                        modalAvatar.src = member.avatar;
+                        modalAvatar.style.display = 'block';
+                    }
                 } else {
-                    modalAvatar.style.display = 'none';
+                    if (modalAvatar) modalAvatar.style.display = 'none';
                 }
 
                 let socialHtml = '';
@@ -125,10 +127,10 @@ import { url } from '../utils/paths';
                     <a href="mailto:${member.email}" aria-label="Email" class="social-icon-btn">
                         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </a>`;
-                modalSocials.innerHTML = socialHtml;
+                if (modalSocials) modalSocials.innerHTML = socialHtml;
 
                 document.body.style.overflow = 'hidden';
-                modal.showModal();
+                if (modal) modal.showModal();
             });
         });
     }
@@ -141,9 +143,11 @@ import { url } from '../utils/paths';
             document.body.style.overflow = '';
         });
         
-        closeBtn.addEventListener('click', () => {
-            modal.close();
-        });
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.close();
+            });
+        }
 
         modal.addEventListener('click', (e) => {
             const dialogDimensions = modal.getBoundingClientRect()
