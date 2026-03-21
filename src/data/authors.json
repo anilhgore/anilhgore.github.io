@@ -186,7 +186,90 @@
     "alumni": false,
     "isTeam": true
   },
- 
+ {
+    "id": "adnanali-shaikh",
+    "name": "Adnanali Shaikh",
+    "title": "M.Sc. Dissertation (2022)",
+    "role": "Dissertation Student",
+    "year": 2022,
+    "bio": "Mr. Adnanali Shaikh  completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/adnanali-shaikh.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+    "id": "mihir-chavda",
+    "name": "Mihir Chavda",
+    "title": "M.Sc. Dissertation (2022)",
+    "role": "Dissertation Student",
+    "year": 2022,
+    "bio": "Mr. Mihir Chavda completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/mihir-chavda.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+    "id": "rohit-priyank",
+    "name": "Rohit Priyank",
+    "title": "M.Sc. Dissertation (2022)",
+    "role": "Dissertation Student",
+    "year": 2022,
+    "bio": "Mr. Rohit Priyank completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/Rohit Priyank.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+    "id": "shivkumar-mishal",
+    "name": "Shivkumar Mishal",
+    "title": "M.Sc. Dissertation (2023)",
+    "role": "Dissertation Student",
+    "year": 2023,
+    "bio": "Mr. Shivkumar Mishal completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/shivkumar-mishal.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+  },
+   {
+    "id": "dhawni-patel",
+    "name": "Dhwani Patel",
+    "title": "M.Sc. Dissertation (2024)",
+    "role": "Dissertation Student",
+    "year": 2024,
+    "bio": "Miss. Dhwani Patel Completed her M.Sc. dissertation under Dr. Gore's supervision on 'Design and Development of Natural-Inspired Sustainable Filtration Technology for Continuous MPs/NPs Removal from Water.'",
+    "avatar": "/dissertation/dhawni-patel.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+   {
+    "id": "jinal-patel",
+    "name": "Jinal Patel",
+    "title": "M.Sc. Dissertation (2022)",
+    "role": "Dissertation Student",
+    "year": 2022,
+    "bio": "Miss. Jinal Patel Completed her M.Sc. dissertation under Dr. Gore's supervision on 'Design and Development of Natural-Inspired Sustainable Filtration Technology for Continuous MPs/NPs Removal from Water.'",
+    "avatar": "/dissertation/jinal-patel.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+   {
+    "id": "sweety-dhodi",
+    "name": "Sweety Dhodi",
+    "title": "M.Sc. Dissertation (2022)",
+    "role": "Dissertation Student",
+    "year": 2022,
+    "bio": "Miss. Sweety Dhodi Completed her M.Sc. dissertation under Dr. Gore's supervision on 'Design and Development of Natural-Inspired Sustainable Filtration Technology for Continuous MPs/NPs Removal from Water.'",
+    "avatar": "/dissertation/sweety-dhodi.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
   {
     "id": "govind-kolekar",
     "name": "Govind B. Kolekar",
