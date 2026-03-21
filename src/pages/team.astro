@@ -17,6 +17,10 @@ const alumni = authorsData
 	.filter(m => m.isTeam && m.alumni)
 	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
 
+const dissertationStudents = authorsData
+	.filter(m => m.isTeam && !m.alumni && m.role === 'Dissertation Student')
+	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+
 const collaborators = authorsData
 	.filter(m => !m.isTeam)
 	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
@@ -188,6 +192,26 @@ const collaborators = authorsData
 								{member.avatar && <img src={member.avatar} alt={member.name} class="team-avatar" />}
 								<span class="team-name">{member.name}</span>
 								<span class="team-role">{member.title}</span>
+							</div>
+						))}
+					</div>
+				</>
+			)}
+
+			{dissertationStudents.length > 0 && (
+				<>
+					<h2>Dissertation Students</h2>
+					<div class="grid-3">
+						{dissertationStudents.map((member) => (
+							<div class="team-card interactive-card author-modal-trigger" data-member={JSON.stringify(member)}>
+								{member.avatar ? (
+									<img src={member.avatar} alt={member.name} class="team-avatar" />
+								) : (
+									<img src="https://ui-avatars.com/api/?name=NA&background=ccc&color=fff&size=200" alt="Placeholder" class="team-avatar" />
+								)}
+								<span class="team-name">{member.name}</span>
+								<span class="team-role">{member.title}</span>
+								<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{member.role}</span>
 							</div>
 						))}
 					</div>

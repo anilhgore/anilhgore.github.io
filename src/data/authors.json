@@ -46,14 +46,14 @@
     "alumni": false,
     "isTeam": true
   },
-   {
+  {
     "id": "shivangini-mishra",
     "name": "Shivangini S. Mishra",
     "title": "PhD Scholar (Working)",
     "role": "PhD Student",
     "bio": "Miss Shivangini S. Mishra is a PhD student under Dr. Gore's supervision working on 'Advanced Approaches for Sustainable Remediation of Emerging Environmental Pollutants in Water.'",
     "avatar": "/team/shivangini-mishra.jpg",
-    "sortOrder": 7,
+    "sortOrder": 8,
     "alumni": false,
     "isTeam": true
   },
@@ -91,6 +91,16 @@
     "isTeam": true
   },
   {
+    "id": "student-id",
+    "name": "Student Name",
+    "title": "M.Sc. Dissertation (Year)",
+    "role": "Dissertation Student",
+    "bio": "...",
+    "avatar": "/team/student.jpg",
+    "alumni": false,
+    "isTeam": true
+  },
+  {
     "id": "govind-kolekar",
     "name": "Govind B. Kolekar",
     "title": "Professor (Physical Chemistry), Shivaji University, Kolhapur",
@@ -117,7 +127,7 @@
     "title": "Professor, Korea University, Seoul, South Korea",
     "role": "International Collaborator",
     "bio": "Prof. Daewon Sohn from Korea University collaborates with Dr. Gore on advanced materials, hydrogel systems, and energy applications.",
-    "avatar": "https://ui-avatars.com/api/?name=D+Sohn&background=003366&color=fff&size=200",
+    "avatar": "/collaborators/daewon-sohn.jpg",
     "alumni": false,
     "isTeam": false
   },
