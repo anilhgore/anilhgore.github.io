@@ -19,7 +19,7 @@ const alumni = authorsData
 
 const dissertationStudents = authorsData
 	.filter(m => m.isTeam && !m.alumni && m.role === 'Dissertation Student')
-	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+	.sort((a, b) => (b.year || 0) - (a.year || 0));
 
 const collaborators = authorsData
 	.filter(m => !m.isTeam)
