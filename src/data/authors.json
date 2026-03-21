@@ -91,12 +91,12 @@
     "isTeam": true
   },
   {
-    "id": "student-id",
-    "name": "Student Name",
-    "title": "M.Sc. Dissertation (Year)",
+    "id": "viraj-lad",
+    "name": "Viraj K. Lad",
+    "title": "M.Sc. Dissertation (2024)",
     "role": "Dissertation Student",
-    "bio": "...",
-    "avatar": "/team/student.jpg",
+    "bio": "Mr. Viraj K. Lad completed his M.Sc. dissertation under Dr. Gore's supervision on 'Textile Dye Remediation by Electrocoagulation: Impact of Microplastics (MPs) and Nano-plastics (NPs) on Dye Removal in Water.'",
+    "avatar": "/dissertation/viraj-lad.jpg",
     "alumni": false,
     "isTeam": true
   },
