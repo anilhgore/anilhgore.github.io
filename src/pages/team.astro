@@ -10,7 +10,7 @@ const piMembers = authorsData
 	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
 
 const currentStudents = authorsData
-	.filter(m => m.isTeam && !m.alumni && m.role !== 'Principal Investigator')
+	.filter(m => m.isTeam && !m.alumni && m.role !== 'Principal Investigator' && m.role !== 'Dissertation Student')
 	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
 
 const alumni = authorsData
