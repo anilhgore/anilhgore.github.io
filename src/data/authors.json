@@ -404,6 +404,42 @@
     "isTeam": true
    },
   {
+    "id": "pinal-bhavsar",
+    "name": "Pinal Bhavsar",
+    "title": "M.Sc. Dissertation (2019)",
+    "role": "Dissertation Student",
+    "year": 2019,
+    "bio": "Miss. Pinal Bhavsar completed her M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/pinal-bhavsar.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+   {
+    "id": "pallavi-lukhi",
+    "name": "Pallavi Lukhi",
+    "title": "M.Sc. Dissertation (2019)",
+    "role": "Dissertation Student",
+    "year": 2019,
+    "bio": "Miss. Pallavi Lukhi completed her M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/pallavi-lukhi.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+  {
+    "id": "shrey-savaliya",
+    "name": "Shrey Savaliya",
+    "title": "M.Sc. Dissertation (2019)",
+    "role": "Dissertation Student",
+    "year": 2019,
+    "bio": "Mr. Shrey Savaliya completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/shrey-savaliya.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+  {
     "id": "govind-kolekar",
     "name": "Govind B. Kolekar",
     "title": "Professor (Physical Chemistry), Shivaji University, Kolhapur",
