@@ -222,8 +222,7 @@
     "alumni": false,
     "isTeam": true
   },
-  },
-   {
+  {
     "id": "dhawni-patel",
     "name": "Dhwani Patel",
     "title": "M.Sc. Dissertation (2022)",
@@ -235,7 +234,7 @@
     "alumni": false,
     "isTeam": true
   },
-   {
+  {
     "id": "jinal-patel",
     "name": "Jinal Patel",
     "title": "M.Sc. Dissertation (2022)",
@@ -247,7 +246,7 @@
     "alumni": false,
     "isTeam": true
   },
-   {
+  {
     "id": "sweety-dhodi",
     "name": "Sweety Dhodi",
     "title": "M.Sc. Dissertation (2022)",
@@ -259,7 +258,7 @@
     "alumni": false,
     "isTeam": true
   },
-   {
+  {
     "id": "jay-tank",
     "name": "Jay N. Tank",
     "title": "M.Sc. Dissertation (2021)",
@@ -318,7 +317,7 @@
     "sortOrder": 9,
     "alumni": false,
     "isTeam": true
-   },
+  },
   {
     "id": "bhautik-chovatiya",
     "name": "Bhautik V. Chovatiya",
@@ -355,7 +354,7 @@
     "alumni": false,
     "isTeam": true
    },
-  {
+   {
     "id": "jhanvi-lakhani",
     "name": "Jhanvi B. Lakhani",
     "title": "M.Sc. Dissertation (2020)",
