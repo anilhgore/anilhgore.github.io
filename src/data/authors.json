@@ -15,7 +15,7 @@
   },
   {
     "id": "pooja-deore",
-    "name": "Pooja V. Deore",
+    "name": "Dr. Pooja V. Deore",
     "title": "PhD Scholar (Awarded Dec 2024)",
     "role": "PhD Student",
     "bio": "Miss Pooja V. Deore completed her PhD under Dr. Gore's supervision on 'Designing of Hybrid Hydrogel for Removal of Emerging Contaminants.' Her research focuses on hydrogel-based environmental remediation and wastewater treatment.",
@@ -26,7 +26,7 @@
   },
   {
     "id": "pinal-bhavsar",
-    "name": "Pinal S. Bhavsar",
+    "name": "Dr. Pinal S. Bhavsar",
     "title": "PhD Scholar (Awarded Dec 2025)",
     "role": "PhD Student",
     "bio": "Miss Pinal S. Bhavsar is a PhD student under Dr. Gore's supervision, working on 'Extraction and Analysis of Microplastics from Various Samples.' Her work addresses the critical challenge of microplastic contamination in food and environmental matrices.",
@@ -37,11 +37,22 @@
   },
   {
     "id": "suraj-yadav",
-    "name": "Suraj Yadav",
+    "name": "Suraj R. Yadav",
     "title": "PhD Scholar (Working)",
     "role": "PhD Student",
     "bio": "Mr. Suraj Yadav is a PhD student under Dr. Gore's supervision working on 'Advanced Approaches for Sustainable Remediation of Emerging Environmental Pollutants in Water.'",
     "avatar": "/team/suraj-yadav.jpg",
+    "sortOrder": 7,
+    "alumni": false,
+    "isTeam": true
+  },
+   {
+    "id": "shivangini-mishra",
+    "name": "Shivangini S. Mishra",
+    "title": "PhD Scholar (Working)",
+    "role": "PhD Student",
+    "bio": "Miss Shivangini S. Mishra is a PhD student under Dr. Gore's supervision working on 'Advanced Approaches for Sustainable Remediation of Emerging Environmental Pollutants in Water.'",
+    "avatar": "/team/shivangini-mishra.jpg",
     "sortOrder": 7,
     "alumni": false,
     "isTeam": true
