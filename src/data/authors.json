@@ -91,6 +91,30 @@
     "isTeam": true
   },
   {
+    "id": "manjot-saini",
+    "name": "Manjot G. Saini",
+    "title": "M.Sc. Dissertation (Working)",
+    "role": "Dissertation Student",
+    "year": 2025,
+    "bio": "Mr. Manjot G. Saini Persuing his M.Sc. dissertation under Dr. Gore's supervision on 'Textile Dye Remediation by Electrocoagulation: Impact of Microplastics (MPs) and Nano-plastics (NPs) on Dye Removal in Water.'",
+    "avatar": "/dissertation/manjot-saini.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+    "id": "urvashi-vadaliya",
+    "name": "Urvashi R. Vadaliya",
+    "title": "M.Sc. Dissertation (Working)",
+    "role": "Dissertation Student",
+    "year": 2025,
+    "bio": "Miss.Urvashi R. Vadaliya completed his M.Sc. dissertation under Dr. Gore's supervision on 'Textile Dye Remediation by Electrocoagulation: Impact of Microplastics (MPs) and Nano-plastics (NPs) on Dye Removal in Water.'",
+    "avatar": "/dissertation/urvashi-vadaliya.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
     "id": "viraj-lad",
     "name": "Viraj K. Lad",
     "title": "M.Sc. Dissertation (2024)",
