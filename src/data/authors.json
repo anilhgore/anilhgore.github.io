@@ -108,8 +108,20 @@
     "title": "M.Sc. Dissertation (Working)",
     "role": "Dissertation Student",
     "year": 2025,
-    "bio": "Miss.Urvashi R. Vadaliya completed his M.Sc. dissertation under Dr. Gore's supervision on 'Textile Dye Remediation by Electrocoagulation: Impact of Microplastics (MPs) and Nano-plastics (NPs) on Dye Removal in Water.'",
+    "bio": "Miss.Urvashi R. Vadaliya persuing his M.Sc. dissertation under Dr. Gore's supervision on 'Textile Dye Remediation by Electrocoagulation: Impact of Microplastics (MPs) and Nano-plastics (NPs) on Dye Removal in Water.'",
     "avatar": "/dissertation/urvashi-vadaliya.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+   {
+    "id": "ashvini-patel",
+    "name": "Ashvini S. Patel",
+    "title": "M.Sc. Dissertation (2024)",
+    "role": "Dissertation Student",
+    "year": 2024,
+    "bio": "Miss.Ashvini S. Patel Completed her M.Sc. dissertation under Dr. Gore's supervision on 'Design and Development of Natural-Inspired Sustainable Filtration Technology for Continuous MPs/NPs Removal from Water.'",
+    "avatar": "/dissertation/ashvini-patel.jpg",
     "sortOrder": 10,
     "alumni": false,
     "isTeam": true
