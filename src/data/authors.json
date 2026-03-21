@@ -186,18 +186,7 @@
     "alumni": false,
     "isTeam": true
   },
-  {
-    "id": "rohit-chaurya",
-    "name": "Rohit Y. Chaurya",
-    "title": "M.Sc. Dissertation (2024)",
-    "role": "Dissertation Student",
-    "year": 2024,
-    "bio": "Mr.Rohit Y. Chaurya Completed his M.Sc. dissertation under Dr. Gore's supervision on 'Designing of Biopolymer Carbon-Dots Nano-composite Solution for Food Self-Life Applications.'",
-    "avatar": "/dissertation/rohit-chauryal.jpg",
-    "sortOrder": 10,
-    "alumni": false,
-    "isTeam": true
-  },
+ 
   {
     "id": "govind-kolekar",
     "name": "Govind B. Kolekar",
