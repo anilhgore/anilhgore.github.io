@@ -127,6 +127,18 @@
     "isTeam": true
   },
   {
+    "id": "rohit-chaurya",
+    "name": "Rohit Y. Chaurya",
+    "title": "M.Sc. Dissertation (2024)",
+    "role": "Dissertation Student",
+    "year": 2024,
+    "bio": "Mr.Rohit Y. Chaurya Completed his M.Sc. dissertation under Dr. Gore's supervision on 'Designing of Biopolymer Carbon-Dots Nano-composite Solution for Food Self-Life Applications.'",
+    "avatar": "/dissertation/rohit-chauryal.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
     "id": "viraj-lad",
     "name": "Viraj K. Lad",
     "title": "M.Sc. Dissertation (2024)",
@@ -134,6 +146,18 @@
     "year": 2024,
     "bio": "Mr. Viraj K. Lad completed his M.Sc. dissertation under Dr. Gore's supervision on 'Textile Dye Remediation by Electrocoagulation: Impact of Microplastics (MPs) and Nano-plastics (NPs) on Dye Removal in Water.'",
     "avatar": "/dissertation/viraj-lad.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+  "id": "jaykumar-patel",
+    "name": "Jaykumar J. Patel",
+    "title": "M.Sc. Dissertation (2023)",
+    "role": "Dissertation Student",
+    "year": 2023,
+    "bio": "Mr . Jaykumar J. Patel Completed her M.Sc. dissertation under Dr. Gore's supervision on 'Eco-Friendly Magnetic Hydrogel for Removal of Microplastics from Water.'",
+    "avatar": "/dissertation/jaykumar-patel.jpg",
     "sortOrder": 10,
     "alumni": false,
     "isTeam": true
@@ -147,6 +171,30 @@
     "bio": "Mr. Jaydip B. Jadav completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
     "avatar": "/dissertation/jaydip-jadav.jpg",
     "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+    "id": "krunal-patel",
+    "name": "Krunal H. Patel",
+    "title": "M.Sc. Dissertation (2023)",
+    "role": "Dissertation Student",
+    "year": 2023,
+    "bio": "Mr. Krunal H. Patel Completed his M.Sc. dissertation under Dr. Gore's supervision on 'Nature Inspired Nano-Carbon Coated Eco-Friendly Jute Bag for Sustainable Food Store Applications .'",
+    "avatar": "/dissertation/krunal-patel.jpg",
+    "sortOrder": 10,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
+    "id": "rohit-chaurya",
+    "name": "Rohit Y. Chaurya",
+    "title": "M.Sc. Dissertation (2024)",
+    "role": "Dissertation Student",
+    "year": 2024,
+    "bio": "Mr.Rohit Y. Chaurya Completed his M.Sc. dissertation under Dr. Gore's supervision on 'Designing of Biopolymer Carbon-Dots Nano-composite Solution for Food Self-Life Applications.'",
+    "avatar": "/dissertation/rohit-chauryal.jpg",
+    "sortOrder": 10,
     "alumni": false,
     "isTeam": true
   },
