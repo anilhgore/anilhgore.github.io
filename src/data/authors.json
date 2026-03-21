@@ -222,24 +222,13 @@
     "alumni": false,
     "isTeam": true
   },
-  {
-    "id": "shivkumar-mishal",
-    "name": "Shivkumar Mishal",
-    "title": "M.Sc. Dissertation (2023)",
-    "role": "Dissertation Student",
-    "year": 2023,
-    "bio": "Mr. Shivkumar Mishal completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
-    "avatar": "/dissertation/shivkumar-mishal.jpg",
-    "sortOrder": 9,
-    "alumni": false,
-    "isTeam": true
   },
    {
     "id": "dhawni-patel",
     "name": "Dhwani Patel",
-    "title": "M.Sc. Dissertation (2024)",
+    "title": "M.Sc. Dissertation (2022)",
     "role": "Dissertation Student",
-    "year": 2024,
+    "year": 2022,
     "bio": "Miss. Dhwani Patel Completed her M.Sc. dissertation under Dr. Gore's supervision on 'Design and Development of Natural-Inspired Sustainable Filtration Technology for Continuous MPs/NPs Removal from Water.'",
     "avatar": "/dissertation/dhawni-patel.jpg",
     "sortOrder": 10,
@@ -270,6 +259,66 @@
     "alumni": false,
     "isTeam": true
   },
+   {
+    "id": "jay-tank",
+    "name": "Jay N. Tank",
+    "title": "M.Sc. Dissertation (2021)",
+    "role": "Dissertation Student",
+    "year": 2021,
+    "bio": "Mr. Jay N. Tank completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/jay-tank.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+   {
+    "id": "mandeep-solanki",
+    "name": "Mandeep B. Solanki",
+    "title": "M.Sc. Dissertation (2021)",
+    "role": "Dissertation Student",
+    "year": 2021,
+    "bio": "Mr. Mandeep B. Solanki completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/mandeep-solanki.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+   {
+    "id": "kais-bariwala",
+    "name": "Mohammad Kais S. Bariwala",
+    "title": "M.Sc. Dissertation (2021)",
+    "role": "Dissertation Student",
+    "year": 2021,
+    "bio": "Mr. Mohammad Kais S. Bariwala completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/kais-bariwala.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+   {
+    "id": "yash-pandya",
+    "name": "Yash N. Pandya",
+    "title": "M.Sc. Dissertation (2021)",
+    "role": "Dissertation Student",
+    "year": 2021,
+    "bio": "Mr. Yash N. Pandya completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/yash-pandya.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
+   {
+    "id": "dixita-patel",
+    "name": "Dixita M. Patel",
+    "title": "M.Sc. Dissertation (2021)",
+    "role": "Dissertation Student",
+    "year": 2021,
+    "bio": "Mr. Dixita M. Patel completed his M.Sc. dissertation under Dr. Gore's supervision on 'Analysis of Microplastics in Alkaline Drinking Water Bottle .'",
+    "avatar": "/dissertation/dixita-patel.jpg",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+   },
   {
     "id": "govind-kolekar",
     "name": "Govind B. Kolekar",
