@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
 import authorsData from '../data/authors.json';
+import { generateFallbackAvatar } from '../utils/avatar';
 
 const piMembers = authorsData
 	.filter(m => m.isTeam && !m.alumni && m.role === 'Principal Investigator')
@@ -24,7 +25,12 @@ const dissertationStudents = authorsData
 const collaborators = authorsData
 	.filter(m => !m.isTeam)
 	.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
----
+
+const withFallback = (member: (typeof authorsData)[number]) => ({
+	...member,
+	fallbackAvatar: generateFallbackAvatar(member.name),
+});
+--- 
 
 <!doctype html>
 <html lang="en">
@@ -152,48 +158,59 @@ const collaborators = authorsData
 				<p>Meet the researchers advancing analytical chemistry and sustainable nanotechnology at UKA Tarsadia University.</p>
 			</div>
 
-			{piMembers.map((member) => (
+			{piMembers.map((member) => {
+				const profile = withFallback(member);
+				return (
 				<div class="pi-card author-modal-trigger" data-member={JSON.stringify(member)}>
-					{member.avatar && <img src={member.avatar} alt={member.name} />}
+					<img src={profile.avatar || profile.fallbackAvatar} alt={profile.name} onerror={`this.onerror=null;this.src='${profile.fallbackAvatar}'`} />
 					<div class="pi-info">
-						<h3>{member.name}</h3>
-						<span class="pi-title">{member.title}</span>
-						<p>{member.bio}</p>
+						<h3>{profile.name}</h3>
+						<span class="pi-title">{profile.title}</span>
+						<p>{profile.bio}</p>
 					</div>
 				</div>
-			))}
+				);
+			})}
 			
 			<h2>PhD Students</h2>
 			<div class="grid-3">
-				{currentStudents.length > 0 ? currentStudents.map((member) => (
+				{currentStudents.length > 0 ? currentStudents.map((member) => {
+					const profile = withFallback(member);
+					return (
 					<div class="team-card interactive-card author-modal-trigger" data-member={JSON.stringify(member)}>
-						{member.avatar ? (
-							<img 
-								src={member.avatar} 
-								alt={member.name} 
-								class="team-avatar"
-							/>
-						) : (
-							<img src="https://ui-avatars.com/api/?name=NA&background=ccc&color=fff&size=200" alt="Placeholder" class="team-avatar" />
-						)}
-						<span class="team-name">{member.name}</span>
-						<span class="team-role">{member.title}</span>
-						<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{member.role}</span>
+						<img
+							src={profile.avatar || profile.fallbackAvatar}
+							alt={profile.name}
+							class="team-avatar"
+							onerror={`this.onerror=null;this.src='${profile.fallbackAvatar}'`}
+						/>
+						<span class="team-name">{profile.name}</span>
+						<span class="team-role">{profile.title}</span>
+						<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{profile.role}</span>
 					</div>
-				)) : <p>No current students listed.</p>}
+					);
+				}) : <p>No current students listed.</p>}
 			</div>
 
 			{alumni.length > 0 && (
 				<>
 					<h2>Alumni</h2>
 					<div class="grid-3">
-						{alumni.map((member) => (
+						{alumni.map((member) => {
+							const profile = withFallback(member);
+							return (
 							<div class="team-card interactive-card author-modal-trigger" data-member={JSON.stringify(member)}>
-								{member.avatar && <img src={member.avatar} alt={member.name} class="team-avatar" />}
-								<span class="team-name">{member.name}</span>
-								<span class="team-role">{member.title}</span>
+								<img
+									src={profile.avatar || profile.fallbackAvatar}
+									alt={profile.name}
+									class="team-avatar"
+									onerror={`this.onerror=null;this.src='${profile.fallbackAvatar}'`}
+								/>
+								<span class="team-name">{profile.name}</span>
+								<span class="team-role">{profile.title}</span>
 							</div>
-						))}
+							);
+						})}
 					</div>
 				</>
 			)}
@@ -202,18 +219,22 @@ const collaborators = authorsData
 				<>
 					<h2>Dissertation Students</h2>
 					<div class="grid-3">
-						{dissertationStudents.map((member) => (
+						{dissertationStudents.map((member) => {
+							const profile = withFallback(member);
+							return (
 							<div class="team-card interactive-card author-modal-trigger" data-member={JSON.stringify(member)}>
-								{member.avatar ? (
-									<img src={member.avatar} alt={member.name} class="team-avatar" />
-								) : (
-									<img src="https://ui-avatars.com/api/?name=NA&background=ccc&color=fff&size=200" alt="Placeholder" class="team-avatar" />
-								)}
-								<span class="team-name">{member.name}</span>
-								<span class="team-role">{member.title}</span>
-								<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{member.role}</span>
+								<img
+									src={profile.avatar || profile.fallbackAvatar}
+									alt={profile.name}
+									class="team-avatar"
+									onerror={`this.onerror=null;this.src='${profile.fallbackAvatar}'`}
+								/>
+								<span class="team-name">{profile.name}</span>
+								<span class="team-role">{profile.title}</span>
+								<span style="font-size: 0.85rem; color: var(--color-text-muted); display: block; margin-top: 4px;">{profile.role}</span>
 							</div>
-						))}
+							);
+						})}
 					</div>
 				</>
 			)}
@@ -223,15 +244,18 @@ const collaborators = authorsData
 					<h2>Research Collaborators</h2>
 					<p style="color: var(--color-text-muted); margin-bottom: 0.5rem;">National and international research collaborators across South Korea, Japan, and India.</p>
 					<div class="collab-grid">
-						{collaborators.map((member) => (
+						{collaborators.map((member) => {
+							const profile = withFallback(member);
+							return (
 							<div class="collab-card author-modal-trigger" data-member={JSON.stringify(member)}>
-								{member.avatar && <img src={member.avatar} alt={member.name} />}
+								<img src={profile.avatar || profile.fallbackAvatar} alt={profile.name} onerror={`this.onerror=null;this.src='${profile.fallbackAvatar}'`} />
 								<div class="collab-info">
-									<span class="collab-name">{member.name}</span>
-									<span class="collab-affil">{member.title}</span>
+									<span class="collab-name">{profile.name}</span>
+									<span class="collab-affil">{profile.title}</span>
 								</div>
 							</div>
-						))}
+							);
+						})}
 					</div>
 				</>
 			)}
