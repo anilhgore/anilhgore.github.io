@@ -47,6 +47,17 @@
     "isTeam": true
   },
   {
+    "id": "pratin-patel",
+    "name": "Pratin N. Patel",
+    "title": "PhD Scholar (Working)",
+    "role": "PhD Student",
+    "bio": "Mr. Pratin N. Patel is a PhD student under Dr. Gore's supervision working on 'Extraction and Chromatographic Analysis of Pesticide Residues in Organic Food Products.'",
+    "avatar": "/team/pratin-patel.jpg",
+    "sortOrder": 7,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
     "id": "shivangini-mishra",
     "name": "Shivangini S. Mishra",
     "title": "PhD Scholar (Working)",
