@@ -228,7 +228,7 @@
     "role": "Dissertation Student",
     "year": 2022,
     "bio": "Mr. Rohit Priyank completed his M.Sc. dissertation under Dr. Gore's supervision on 'Preparation of PVA-SA@MOAC Composite Hydrogel for the Adsorptive Removal of Fluorescein Sodium.'",
-    "avatar": "/dissertation/Rohit Priyank.jpg",
+    "avatar": "/dissertation/rohit-priyank.jpg",
     "sortOrder": 9,
     "alumni": false,
     "isTeam": true
@@ -507,7 +507,7 @@
     "title": "Post Doc Fellow at Khalifa University",
     "role": "Research Collaborator",
     "bio": "Dr. Chandrashekhar S. Patil collaborates with Dr. Gore on waste biomass valorization, activated carbon, and sustainable wastewater treatment.",
-    "avatar": "https://ui-avatars.com/api/?name=CS+Patil&background=003366&color=fff&size=200",
+    "avatar": "/collaborators/chandrashekhar-patil.jpg",
     "alumni": false,
     "isTeam": false
   },
