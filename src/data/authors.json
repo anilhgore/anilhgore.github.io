@@ -490,6 +490,26 @@
     "alumni": false,
     "isTeam": false
   }, 
+  {
+    "id": "pravin-dongare",
+    "name": "Pravin Dongare",
+    "title": "Professor, Department of Chemistry Shivraj College of Arts, Commerce & D. S. Kadam Science College, Gadhinglaj",
+    "role": "Research Collaborator",
+    "bio": "Dr Pravin Dongare from Shivaji University collaborates with Dr. Gore on Applications of fluorescence-based techniques for microplastics and nanoplastics analysis.",
+    "avatar": "/collaborators/pravin-dongare.jpg",
+    "alumni": false,
+    "isTeam": false
+  }, 
+  {
+    "id": "mukund-mali",
+    "name": "Dr. Mukund G. Mali",
+    "title": "Assistant Professor, School of Chemical Sciences, PAH Solapur University, Solapur",
+    "role": "Research Collaborator",
+    "bio": "Dr. Mukund G. Mali from PAH Solapur University collaborates with Dr. Gore on Applications of fluorescence-based techniques for microplastics and nanoplastics analysis.",
+    "avatar": "/collaborators/mukund-mali.jpg",
+    "alumni": false,
+    "isTeam": false
+  }, 
   { 
     "id": "shahikant-patole",
     "name": "Shashikant P. Patole",
