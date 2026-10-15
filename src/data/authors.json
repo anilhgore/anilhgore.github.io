@@ -58,6 +58,18 @@
     "isTeam": true
   },
   {
+    "id": "krutik-rabari",
+    "name": "Krutik M. Rabari",
+    "title": "PhD Scholar (Working)",
+    "role": "PhD Student",
+    "bio": "Mr. Krutik M. Rabari is a PhD student under Dr. Gore's supervision working on 'A Sustainable Electrochemical Metal Recovery from Industrial Wastewater for the Development of Functional Materials for Energy Applications.",
+    "avatar": "/krutik-rabari.jpg",
+    "email": "krutikrabari06@gmail.com",
+    "sortOrder": 9,
+    "alumni": false,
+    "isTeam": true
+  },
+  {
     "id": "shivangini-mishra",
     "name": "Shivangini S. Mishra",
     "title": "PhD Scholar (Working)",
